@@ -1,0 +1,8 @@
+{
+    "users": [
+        { "id": 1, "username": "Michel", "email": "michel@marmelab.com" },
+        { "id": 2, "username": "Jean", "email": "jean@marmelab.com" },
+        { "id": 3, "username": "Jacques", "email": "jacques@marmelab.com" },
+        { "id": 4, "username": "Michalak", "email": "michalak@marmelab.com" }
+    ]
+}

@@ -15,6 +15,10 @@ const instance = axios.create({
     },
 });
 
+const persoInstance = axios.create({
+    baseURL: 'http://localhost:3001',
+});
+
 export async function getNowPlaying(): Promise<MovieShort[]> {
     type Response = {
         page: number;
@@ -83,4 +87,9 @@ export async function getCredits(
 
     const res = await instance.get<Response>(`/movie/${id}/credits`);
     return { cast: res.data.cast, crew: res.data.crew };
+}
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export function getUsersList() {
+    return persoInstance.get(`/users`);
 }

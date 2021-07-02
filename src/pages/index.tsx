@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import type { NextPage } from 'next';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from '../components/head';
 import MovieCard from '../components/movie-card';
 import Sidebar from '../components/sidebar';
 import type { Genre, MovieShort } from '../interfaces';
-import { getGenreList, getNowPlaying } from '../lib/api';
+import { getGenreList, getNowPlaying, getUsersList } from '../lib/api';
 
 const all: Genre = { id: -1, name: 'All' };
 
@@ -15,7 +16,7 @@ type Props = {
 
 const Home: NextPage<Props> = ({ genres, movies }: Props) => {
     const [activeGenre, setActiveGenre] = useState<Genre['id']>(all.id);
-
+    const [users, setUsers] = useState([]);
     const filterMovies = () => {
         if (activeGenre === -1) {
             return movies;
@@ -27,7 +28,13 @@ const Home: NextPage<Props> = ({ genres, movies }: Props) => {
             );
         });
     };
+    useEffect(() => {
+        getUsersList().then((res) => setUsers(res.data));
+    }, []);
 
+    if (!users || users.length === 0) {
+        return <>BIG ERROR BABY</>;
+    }
     return (
         <>
             <Head title="Home" />
@@ -59,7 +66,12 @@ export async function getServerSideProps(): Promise<{ props: Props }> {
     const movies = await getNowPlaying();
     const genres = await getGenreList();
 
-    return { props: { genres, movies } };
+    return {
+        props: {
+            genres,
+            movies,
+        },
+    };
 }
 
 export default Home;
