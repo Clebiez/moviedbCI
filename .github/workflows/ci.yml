@@ -21,8 +21,7 @@ jobs:
               with:
                   node-version: '14'
             - run: curl https://assets.greenframe.io/install.sh | bash
+            - run: greenframe update alpha
             - run: yarn install
             - run: yarn build
-            - run: greenframe update alpha
-            - run: greenframe version
             - run: yarn greenframe-audit
