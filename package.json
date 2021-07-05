@@ -35,6 +35,6 @@
     "start": "next start",
     "server-start": "node server.js",
     "lhci": "./node_modules/.bin/lhci autorun",
-    "greenframe-audit": "./node_modules/.bin/concurrently -s first -k \"greenframe autorun ./examples/moviedb.js http://localhost:3000 -p alphaMovie3 \" \"yarn start\" \"yarn server-start\""
+    "greenframe-audit": "./node_modules/.bin/concurrently -s first -k \"greenframe autorun ./examples/moviedb.js http://localhost:3000 -p alphaMovie4 -s 4 \" \"yarn start\" \"yarn server-start\""
   }
 }
