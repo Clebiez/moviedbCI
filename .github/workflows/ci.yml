@@ -21,10 +21,8 @@ jobs:
               with:
                   node-version: '14'
             - run: curl https://assets.greenframe.io/install.sh | bash
-            - run: greenframe update alpha
             - run: yarn install
             - run: yarn build
             - run: yarn greenframe-audit
-            - run: greenframe autorun ./examples/nextWebsite.js https://nextjs.org -p alphaNext4 -s 4
-            - run: greenframe autorun ./examples/greenframe.js https://greenframe.io -p alphaGreenframe4 -s 4
-            - run: greenframe autorun ./examples/ra-demo.js https://marmelab.com/react-admin-demo -p alphaRADemo4 -s 4
+              env:
+                  GREENFRAME_PROJECT_ID: ${{secrets.GREENFRAME_PROJECT_ID}}

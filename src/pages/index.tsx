@@ -16,7 +16,7 @@ type Props = {
 
 const Home: NextPage<Props> = ({ genres, movies }: Props) => {
     const [activeGenre, setActiveGenre] = useState<Genre['id']>(all.id);
-    const [users, setUsers] = useState([]);
+    // const [users, setUsers] = useState([]);
     const filterMovies = () => {
         if (activeGenre === -1) {
             return movies;
@@ -28,13 +28,13 @@ const Home: NextPage<Props> = ({ genres, movies }: Props) => {
             );
         });
     };
-    useEffect(() => {
-        getUsersList().then((res) => setUsers(res.data));
-    }, []);
+    // useEffect(() => {
+    //     getUsersList().then((res) => setUsers(res.data));
+    // }, []);
 
-    if (!users || users.length === 0) {
-        return <>BIG ERROR BABY</>;
-    }
+    // if (!users || users.length === 0) {
+    //     return <>BIG ERROR BABY</>;
+    // }
     return (
         <>
             <Head title="Home" />
