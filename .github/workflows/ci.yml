@@ -19,6 +19,7 @@ jobs:
             - uses: actions/checkout@v2
             - uses: actions/setup-node@v2
               with:
+                  fetch-depth: '0'
                   node-version: '14'
             - run: curl https://assets.greenframe.io/install.sh | bash
             - run: yarn install
