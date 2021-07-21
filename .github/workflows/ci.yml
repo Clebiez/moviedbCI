@@ -17,9 +17,10 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
+              with:
+                  fetch-depth: '0'
             - uses: actions/setup-node@v2
               with:
-                  fetch-depth: 1000
                   node-version: '14'
             - run: git merge-base main HEAD
             - run: curl https://assets.greenframe.io/install.sh | bash
