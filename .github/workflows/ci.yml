@@ -18,11 +18,11 @@ jobs:
         steps:
             - uses: actions/checkout@v2
               with:
-                  fetch-depth: '0'
+                  fetch-depth: 0
             - uses: actions/setup-node@v2
               with:
                   node-version: '14'
-            - run: git merge-base main HEAD
+            - run: git merge-base --fork-point main
             - run: curl https://assets.greenframe.io/install.sh | bash
             - run: yarn install
             - run: yarn build
