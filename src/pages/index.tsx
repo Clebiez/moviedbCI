@@ -64,12 +64,13 @@ const Home: NextPage<Props> = ({ genres, movies }: Props) => {
 
 export async function getServerSideProps(): Promise<{ props: Props }> {
     const movies = await getNowPlaying();
+    const half = Math.ceil(movies.length / 2);
+    const firstHalf = movies.splice(0, half);
     const genres = await getGenreList();
-
     return {
         props: {
             genres,
-            movies,
+            movies: firstHalf,
         },
     };
 }
