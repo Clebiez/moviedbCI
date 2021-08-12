@@ -22,7 +22,7 @@ jobs:
                   node-version: '14'
             - run: echo $HOME
             - run: echo $PATH
-            - run: mkdir -p /home/runner.local/lib
+            - run: mkdir -p $HOME/.local/lib
             - run: ls /home/runner/.local
             - run: ls /home/runner/.local/lib
             - run: ls /home/runner/.local/bin
