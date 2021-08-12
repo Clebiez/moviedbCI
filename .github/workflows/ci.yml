@@ -20,12 +20,6 @@ jobs:
             - uses: actions/setup-node@v2
               with:
                   node-version: '14'
-            - run: echo $HOME
-            - run: echo $PATH
-            - run: mkdir -p $HOME/.local/lib
-            - run: ls /home/runner/.local
-            - run: ls /home/runner/.local/lib
-            - run: ls /home/runner/.local/bin
             - run: curl https://assets.greenframe.io/install.sh | bash
             - run: yarn install
             - run: yarn build
