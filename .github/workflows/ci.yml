@@ -22,6 +22,7 @@ jobs:
                   node-version: '14'
             - run: echo $HOME
             - run: echo $PATH
+            - run: ls /home/runner/.local
             - run: ls /home/runner/.local/lib
             - run: ls /home/runner/.local/bin
             - run: curl https://assets.greenframe.io/install.sh | bash
