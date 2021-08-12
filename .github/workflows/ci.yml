@@ -23,6 +23,8 @@ jobs:
             - run: echo $HOME
             - run: echo $PATH
             - run: curl https://assets.greenframe.io/install.sh | bash
+            - run: ls /home/runner/.local/lib
+            - run: ls /home/runner/.local/bin
             - run: yarn install
             - run: yarn build
             # - run: yarn greenframe-audit
