@@ -5,8 +5,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            # - run: git merge-base --fork-point origin/main
-            - run: git merge-base test origin/main
+            - run: git symbolic-ref --quiet --short HEAD
+            - run: echo $GITHUB_HEAD_REF
+            - run: echo $GITHUB_REF
+
+            - run: git merge-base $GITHUB_REF origin/main
             - run: curl https://assets.greenframe.io/install.sh | bash
             # Start your application here
             - run: greenframe analyze
