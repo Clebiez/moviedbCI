@@ -6,6 +6,8 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - run: git remote
+            - run: git branch -r
+
             - run: git symbolic-ref --quiet --short HEAD
             - run: git merge-base HEAD origin/main
             - run: git merge-base HEAD main
