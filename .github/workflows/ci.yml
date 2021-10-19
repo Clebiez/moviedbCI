@@ -7,12 +7,6 @@ jobs:
             - uses: actions/checkout@v2
               with:
                   fetch-depth: 0
-            - run: git remote
-            - run: git branch -r
-
-            - run: git symbolic-ref --quiet --short HEAD
-            - run: git merge-base HEAD origin/main
-            - run: git merge-base HEAD main
             - run: curl https://assets.greenframe.io/install.sh | bash
             # Start your application here
             - run: greenframe analyze
