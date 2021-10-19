@@ -1,7 +1,7 @@
 # [MovieLens](https://movie-lens.vercel.app/)
 
 **MovieLens** is an SSR application that uses **TMDb API** to get the movie details. Developed in **[NextJS](https://nextjs.org/)** using **[TypeScript](https://www.typescriptlang.org/)**.
-
+t
 ## Getting Started:
 
 
