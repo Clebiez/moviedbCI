@@ -1,0 +1,9 @@
+scenario: './examples/greenframe.js'
+baseURL: 'https://greenframe.io'
+samples: 2
+distant: false
+projectName: 'e2e'
+containers:
+    - 'enterprise_api'
+databaseContainers:
+    - 'enterprise_db'

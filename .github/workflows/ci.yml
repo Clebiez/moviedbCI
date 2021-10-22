@@ -1,28 +1,16 @@
-name: CI
+name: Greenframe Analyze
 on: [push]
 jobs:
-    lighthouseci:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
-              with:
-                  node-version: '14'
-            - run: yarn install
-            - run: yarn build
-            - run: yarn lhci
-              env:
-                  LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
     greenframeci:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - uses: actions/setup-node@v2
               with:
-                  node-version: '14'
+                  fetch-depth: 0
+            - run: git config --get remote.origin.url
             - run: curl https://assets.greenframe.io/install.sh | bash
-            - run: yarn install
-            - run: yarn build
-            # - run: yarn greenframe-audit
-            #   env:
-            #       GREENFRAME_PROJECT_ID: ${{secrets.GREENFRAME_PROJECT_ID}}
+            - run: greenframe update
+            # Start your application here
+            - run: greenframe analyze
+              env:
+                  GREENFRAME_SECRET_TOKEN: ${{secrets.GREENFRAME_SECRET_TOKEN}}
