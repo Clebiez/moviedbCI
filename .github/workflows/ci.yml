@@ -9,6 +9,7 @@ jobs:
                   fetch-depth: 0
             - run: git config --get remote.origin.url
             - run: curl https://assets.greenframe.io/install.sh | bash
+            - run: greenframe update
             # Start your application here
             - run: greenframe analyze
               env:
